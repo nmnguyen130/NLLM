@@ -1,0 +1,6 @@
+tqdm
+regex
+torch
+tiktoken
+tokenizers
+transformers

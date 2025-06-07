@@ -146,6 +146,7 @@ def main():
     # Initialize the tokenizer and train
     tokenizer = RegexTokenizer()
     tokenizer.train(text, vocab_size, verbose=False)
+    tokenizer.save("taylorswift_regex")
 
     input_text = "Reading practice to help you understand texts with everyday or job-related language. Texts include articles, travel guides, emails, adverts and reviews."
 

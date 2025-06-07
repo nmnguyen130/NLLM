@@ -6,6 +6,8 @@ MODULES = {
     '1': 'src.shared.tokenizers.basic',
     '2': 'src.shared.tokenizers.regex',
     '3': 'src.shared.tokenizers.gpt4',
+    '4': 'src.shared.tokenizers.test',
+    '5': 'src.shared.tokenizers.main',
 }
 
 def print_modules():

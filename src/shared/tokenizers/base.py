@@ -19,7 +19,7 @@ def merge(token_ids: List[int], target_pair: Tuple[int, int], new_token_id: int)
     merged_ids = []
     i = 0
     while i < len(token_ids):
-        if (i < len(token_ids) - 1) and (token_ids[i], token_ids[i+1]) == target_pair:
+        if (i < len(token_ids) - 1) and (token_ids[i] == target_pair[0]) and (token_ids[i+1] == target_pair[1]):
             merged_ids.append(new_token_id)
             i += 2
         else:
@@ -82,6 +82,16 @@ class Tokenizer:
             vocab[idx] = token_str.encode('utf-8')
         return vocab
     
+    def save(self, file_prefix):
+        """
+        Save the tokenizer model and human-readable vocabulary to disk.
+        Files:
+          - {file_prefix}.model: for loading the tokenizer
+          - {file_prefix}.vocab: for human inspection (not used for loading)
+        """
+        self._save_model(file_prefix)
+        self._save_vocab(file_prefix)
+    
     def _save_model(self, file_prefix):
         """Save tokenizer model to {file_prefix}.model."""
         model_file = file_prefix + ".model"
@@ -108,16 +118,6 @@ class Tokenizer:
                     f.write(f"[{s1} {s2}] -> [{token_str}] {idx}\n")
                 else:
                     f.write(f"[{token_str}] {idx}\n")
-    
-    def save(self, file_prefix):
-        """
-        Save the tokenizer model and human-readable vocabulary to disk.
-        Files:
-          - {file_prefix}.model: for loading the tokenizer
-          - {file_prefix}.vocab: for human inspection (not used for loading)
-        """
-        self._save_model(file_prefix)
-        self._save_vocab(file_prefix)
 
     def load(self, model_file):
         """

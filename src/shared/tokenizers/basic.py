@@ -83,10 +83,10 @@ class BasicTokenizer(Tokenizer):
         return text_bytes.decode('utf-8', errors="replace")
     
 def main():
-    file_name = "data/taylorswift.txt"
-    with open(file_name, 'r', encoding='utf-8') as f:
-        text = f.read()
+    # with open("data/taylorswift.txt", 'r', encoding='utf-8') as f:
+    #     text = f.read()
     vocab_size = 1000
+    text = "the theater is there for those who think they're thinkers"
 
     # Initialize and train the tokenizer
     tokenizer = BasicTokenizer()
@@ -94,7 +94,8 @@ def main():
     tokenizer.save("taylorswift")
 
     # Encode a sample string
-    input_text = "Reading practice to help you understand texts with everyday or job-related language. Texts include articles, travel guides, emails, adverts and reviews."
+    input_text = "abcab"
+    # input_text = "Reading practice to help you understand texts with everyday or job-related language. Texts include articles, travel guides, emails, adverts and reviews."
     # input_text = "Thực hành đọc để giúp bạn hiểu các văn bản bằng ngôn ngữ hàng ngày hoặc liên quan đến công việc. Văn bản bao gồm các bài viết, hướng dẫn du lịch, email, quảng cáo và đánh giá."
     encoded = tokenizer.encode(input_text)
     print("\nTokens:")
@@ -113,3 +114,10 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+[281, 396, 325, 657, 392, 499, 256, 352, 104, 358, 588, 121, 321, 32, 519, 100,
+278, 339, 319, 116, 576, 632, 454, 550, 278, 121, 100, 762, 283, 106, 111, 98, 45, 320, 108,
+578, 108, 858, 117, 500, 101, 259, 84, 576, 632, 964, 256, 271, 499, 108, 814, 366, 751, 358,
+32, 103, 117, 418, 814, 293, 529, 108, 441, 396, 118, 278, 632, 319, 320, 659, 115, 46]
+"""

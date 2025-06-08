@@ -3,11 +3,9 @@ import time
 
 MODULES = {
     # Tokenizers
-    '1': 'src.shared.tokenizers.basic',
-    '2': 'src.shared.tokenizers.regex',
+    '1': 'src.shared.tokenizers.main',
+    '2': 'src.shared.tokenizers.test',
     '3': 'src.shared.tokenizers.gpt4',
-    '4': 'src.shared.tokenizers.test',
-    '5': 'src.shared.tokenizers.main',
 }
 
 def print_modules():
